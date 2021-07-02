@@ -24,6 +24,7 @@ type UserModel struct {
 	Name          string            `json:"name"`
 	UserName      string            `json:"user_name"`
 	Password      string            `json:"password"`
+	Ldap          bool              `json:"ldap"`
 	Avatar        string            `json:"avatar"`
 	RememberToken string            `json:"remember_token"`
 	Permissions   []PermissionModel `json:"permissions"`

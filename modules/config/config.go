@@ -395,6 +395,10 @@ type Config struct {
 
 	URLFormat URLFormat `json:"url_format,omitempty" yaml:"url_format,omitempty" ini:"url_format,omitempty"`
 
+	LdapHost string `json:"ldap_host,omitempty" yaml:"ldap_host,omitempty" ini:"ldap_host,omitempty"`
+
+	LdapBind string `json:"ldap_bind,omitempty" yaml:"ldap_bind,omitempty" ini:"ldap_bind,omitempty"`
+
 	prefix string       `json:"-" yaml:"-" ini:"-"`
 	lock   sync.RWMutex `json:"-" yaml:"-" ini:"-"`
 }
@@ -1285,6 +1289,18 @@ func GetExcludeThemeComponents() []string {
 	_global.lock.RLock()
 	defer _global.lock.RUnlock()
 	return _global.ExcludeThemeComponents
+}
+
+func GetLdapHost() string {
+	_global.lock.RLock()
+	defer _global.lock.RUnlock()
+	return _global.LdapHost
+}
+
+func GetLdapBind() string {
+	_global.lock.RLock()
+	defer _global.lock.RUnlock()
+	return _global.LdapBind
 }
 
 type Service struct {

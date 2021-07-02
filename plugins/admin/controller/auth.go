@@ -48,7 +48,13 @@ func (h *Handler) Auth(ctx *context.Context) {
 			response.BadRequest(ctx, "wrong password or username")
 			return
 		}
-		user, ok = auth.Check(password, username, h.conn)
+
+		isLdap := ctx.FormValue("ldap")
+		if isLdap == "yes" || isLdap == "y" || isLdap == "true" || isLdap == "1" {
+			user, ok = auth.CheckLdap(password, username, h.conn)
+		} else {
+			user, ok = auth.Check(password, username, h.conn)
+		}
 	} else {
 		user, ok, errMsg = auth.GetService(s).P(ctx)
 	}

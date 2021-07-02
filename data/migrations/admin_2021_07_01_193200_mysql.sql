@@ -1,0 +1,1 @@
+alter table `goadmin_users` add `ldap` tinyint(1) unsigned NOT NULL default 0 after `password`;
