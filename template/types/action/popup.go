@@ -292,6 +292,7 @@ func (pop *PopUpAction) Js() template.JS {
 							data["id"] = id;
 						}
 						data['popup_id'] = "`+pop.Id+`"
+						$('#`+pop.Id+` .modal-body').html("");
 						$.ajax({
                             method: '`+pop.Method+`',
                             url: "`+pop.Url+`",
