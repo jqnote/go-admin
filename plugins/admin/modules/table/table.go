@@ -60,6 +60,7 @@ type Table interface {
 	GetData(params parameter.Parameters) (PanelInfo, error)
 	GetDataWithIds(params parameter.Parameters) (PanelInfo, error)
 	GetDataWithId(params parameter.Parameters) (FormInfo, error)
+	PreUpload(dataList form.Values)
 	UpdateData(dataList form.Values) error
 	InsertData(dataList form.Values) error
 	DeleteData(pk string) error

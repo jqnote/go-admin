@@ -753,6 +753,12 @@ func (tb *DefaultTable) GetDataWithId(param parameter.Parameters) (FormInfo, err
 	}, nil
 }
 
+func (tb *DefaultTable) PreUpload(dataList form.Values) {
+	if tb.Form.PreUploadFn != nil {
+		tb.Form.PreUploadFn(dataList)
+	}
+}
+
 // UpdateData update data.
 func (tb *DefaultTable) UpdateData(dataList form.Values) error {
 

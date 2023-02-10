@@ -99,6 +99,8 @@ func (h *Handler) NewForm(ctx *context.Context) {
 
 	param := guard.GetNewFormParam(ctx)
 
+	param.Panel.PreUpload(param.Value())
+
 	// process uploading files, only support local storage
 	if len(param.MultiForm.File) > 0 {
 		err := file.GetFileEngine(h.config.FileUploadEngine.Name).Upload(param.MultiForm)

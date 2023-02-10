@@ -337,6 +337,7 @@ type FormPanel struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
 
+	PreUploadFn  FormPostFn       `json:"pre_upload_fn"`
 	Validator    FormPostFn       `json:"validator"`
 	PostHook     FormPostFn       `json:"post_hook"`
 	PreProcessFn FormPreProcessFn `json:"pre_process_fn"`
