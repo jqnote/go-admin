@@ -1281,6 +1281,11 @@ func (f *FormPanel) SetLayout(layout form2.Layout) *FormPanel {
 	return f
 }
 
+func (f *FormPanel) SetPreUpload(va FormPostFn) *FormPanel {
+	f.PreUploadFn = va
+	return f
+}
+
 func (f *FormPanel) SetPostValidator(va FormPostFn) *FormPanel {
 	f.Validator = va
 	return f
