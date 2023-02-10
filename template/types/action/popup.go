@@ -185,7 +185,7 @@ func PopUpWithForm(data PopUpData, fn GetForm, url string) *PopUpAction {
 				SetPrefix(config.PrefixFixSlash()).
 				SetUrl(url).
 				SetOperationFooter(col1 + col2).GetContent()).
-				SetStyle(template.HTMLAttr(`overflow-x: hidden;overflow-y: hidden;`)).
+			SetStyle(template.HTMLAttr(`overflow-x: hidden;overflow-y: hidden;`)).
 			GetContent()
 	}
 	return &PopUpAction{
@@ -291,7 +291,8 @@ func (pop *PopUpAction) Js() template.JS {
 						if (id && id !== "") {
 							data["id"] = id;
 						}
-						data['popup_id'] = "`+pop.Id+`"
+						data['popup_id'] = "`+pop.Id+`";
+						$('#`+pop.Id+` .modal-body').html("");
 						$.ajax({
                             method: '`+pop.Method+`',
                             url: "`+pop.Url+`",
